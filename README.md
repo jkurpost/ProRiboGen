@@ -1,11 +1,11 @@
 # ProRiboGen
 ProRiboGen is a deep learning model ...
 
-# installation
+## Installation
 
-# training
+## Training
 
-# sampling
+## Sampling
 
-# motif extraction
+## Motif extraction
 
