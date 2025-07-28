@@ -32,6 +32,7 @@ Train a new ProRiboGen by using the command below
 ```
 python trainer_v2.2.py --conf /path/to/training_config_file
 ```
+Config file example is provided at config/training_config.json
 The following parameters need to be specified by the user for the training process:
 
 - **`dir_protein_features`**: Directory containing the protein feature files, saved in `.npz` format.
