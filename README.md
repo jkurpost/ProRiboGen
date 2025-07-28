@@ -22,12 +22,25 @@ ProRiboGen is a diffusion language model-based general generative model, designe
 
 ### Create Conda Environment
 
-```bash
+```
 conda env create -n ProRiboGen -f ProRiboGen.yml
-
+```
 
 ## Training
 
+Train a new ProRiboGen by using the command below
+```
+python trainer_v2.2.py --conf /path/to/training_config_file
+```
+The training config includes following needs to be specific by users:
+
+"dir_protein_features": which is the dir to the protein feature files, save as .npz format
+"file_p_r", the path to the file with protein ids and RNA ids
+"file_rna_tokens" the path to RNA tokens
+"active_checkpoint" the checkpoint model
+"dir_out" the trained model will be saved
+
+Training is supported with DDP 
 ## Sampling
 
 ## Motif extraction
