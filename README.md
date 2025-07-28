@@ -30,7 +30,7 @@ conda env create -n ProRiboGen -f ProRiboGen.yml
 
 Train a new ProRiboGen by using the command below
 ```
-python trainer_v2.2.py --conf /path/to/training_config_file
+python trainer.py --conf /path/to/training_config_file
 ```
 Config file example is provided at `config/training_config.json`
 
