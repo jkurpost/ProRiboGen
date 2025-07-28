@@ -32,7 +32,8 @@ Train a new ProRiboGen by using the command below
 ```
 python trainer_v2.2.py --conf /path/to/training_config_file
 ```
-Config file example is provided at config/training_config.json
+Config file example is provided at `config/training_config.json`
+
 The following parameters need to be specified by the user for the training process:
 
 - **`dir_protein_features`**: Directory containing the protein feature files, saved in `.npz` format.
@@ -45,10 +46,31 @@ The following parameters need to be specified by the user for the training proce
 
 - **`dir_out`**: Directory where the trained model will be saved.
 
+- **`num_epochs`** Epochs for training
+
 Ensure that these paths are correctly configured in your training setup before starting the process.
 
 Training is supported with DDP 
 ## Sampling
+
+Generate RNAs for a target RBPs using the command below
+```
+python sampler.py --conf /path/to/sampling_config_file
+```
+
+Config file example is provided at `config/sampling_config.json`
+
+The following parameters need to be specified by the user for the training process:
+
+- **`dir_protein_features`**: Directory containing the protein feature files, saved in `.npz` format.
+  
+- **`file_p`**: Path to the protein ids for generation.
+
+- **`dir_out`**: Directory where the generated result will be saved.
+
+- **`num_per_protein`**: Generated RNA count for a specific RBP.
+
+- **`dit_pth`**: Path to the trained ProRiboGen model.
 
 ## Motif extraction
 
