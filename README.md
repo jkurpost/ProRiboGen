@@ -60,7 +60,7 @@ python sampler.py --conf /path/to/sampling_config_file
 
 Config file example is provided at `config/sampling_config.json`
 
-The following parameters need to be specified by the user for the training process:
+The following parameters need to be specified by the user for the sampling process:
 
 - **`dir_protein_features`**: Directory containing the protein feature files, saved in `.npz` format.
   
