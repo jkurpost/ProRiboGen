@@ -32,13 +32,19 @@ Train a new ProRiboGen by using the command below
 ```
 python trainer_v2.2.py --conf /path/to/training_config_file
 ```
-The training config includes following needs to be specific by users:
+The following parameters need to be specified by the user for the training process:
 
-"dir_protein_features": which is the dir to the protein feature files, save as .npz format
-"file_p_r", the path to the file with protein ids and RNA ids
-"file_rna_tokens" the path to RNA tokens
-"active_checkpoint" the checkpoint model
-"dir_out" the trained model will be saved
+- **`dir_protein_features`**: Directory containing the protein feature files, saved in `.npz` format.
+  
+- **`file_p_r`**: Path to the file containing the mapping between protein IDs and RNA IDs.
+
+- **`file_rna_tokens`**: Path to the file with RNA tokens.
+
+- **`active_checkpoint`**: Path to the pre-trained checkpoint model (if resuming training or fine-tuning).
+
+- **`dir_out`**: Directory where the trained model will be saved.
+
+Ensure that these paths are correctly configured in your training setup before starting the process.
 
 Training is supported with DDP 
 ## Sampling
