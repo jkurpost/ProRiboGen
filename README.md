@@ -72,5 +72,4 @@ The following parameters need to be specified by the user for the sampling proce
 
 - **`dit_pth`**: Path to the trained ProRiboGen model.
 
-## Motif extraction
 
