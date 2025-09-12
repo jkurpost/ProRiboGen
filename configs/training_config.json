@@ -1,0 +1,41 @@
+{
+    "scenario": "embeding_long_len3.4_0.9",
+    "pad_id": 5,
+    "vocab_size": 6,
+    "dit": {
+        "scale": "small_PE_TE",
+        "d_input": 1024,
+        "d_model": 128,
+        "n_layers": 6,
+        "n_heads": 8,
+        "max_timesteps": 2000,
+        "rmask_null": true,
+        "ignore_pad_id": true,
+        "schedule_name": "sqrt",
+        "hidden_t_dim" : 128,
+        "max_position_emb_len" : 101
+    },
+    "train": {
+        "file_p_r": "/path/to/protein_rna_pair_for_train.csv",
+        "dir_protein_features": "/path/to/protein_csv",
+        "file_rna_tokens": "/path/to/tokenized_rna.txt",
+        "active_checkpoint": "/path/to/chekpoint_model.pth",
+
+        "dir_out": "/path/to/training_output",
+        "num_epochs": 650,
+        "batch_size": 256,
+        "learning_rate": 1e-5,
+        "accumulation_loss_backward_steps": 1,
+        "shuffle": false,
+        "t_sampler" : "lossaware",
+        "CFG" : false
+    },
+    "test": {
+        "file_p_r": "/path/to/protein_rna_pair_for_test.csv"
+    },
+    "env":{
+        "n_gpus": 4,
+        "all_gpus": [0,1,2,3],
+        "nccl_port": "58000"
+    }
+}
