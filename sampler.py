@@ -403,7 +403,6 @@ if __name__ == "__main__":
     print(conf["file_p"])
     print(conf["dit"]["dit_pth"])
     print(conf["env"]["all_gpus"])
-    input("确认？")
     world_size = conf["env"]["n_gpus"]
 
     if world_size > 1:
