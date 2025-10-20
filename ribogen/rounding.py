@@ -93,24 +93,18 @@ def denoised_fn_round(args, model, text_emb):
     old_shape = text_emb.shape
     old_device = text_emb.device
 
-    # 展平 text_emb
     if len(text_emb.shape) > 2:
         text_emb = text_emb.reshape(-1, text_emb.size(-1))
     else:
         text_emb = text_emb
 
-    # 获取最近邻索引
     val, indices = get_efficient_knn(model_emb, text_emb.to(model_emb.device))
     rounded_tokens = indices[0]  # 形状: (bsz*seqlen,)
 
-    # 获取 bsz 和 seqlen
     bsz, seqlen, dim = old_shape
 
-    # 调整 rounded_tokens 的形状为 (bsz, seqlen)
     rounded_tokens = rounded_tokens.view(bsz, seqlen)
 
-    # 将 token 转换为嵌入向量
     rounded_emb = model.module.rna_embedding(rounded_tokens)
 
-    # 调用模
     return rounded_emb
