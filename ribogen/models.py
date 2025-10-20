@@ -209,11 +209,6 @@ class DitLMSmall_TE_PE(nn.Module):
             self.time_embeddings = time_embed'''
 
 
-"""
-VAE: RNA tokens的编解码器, 用于将RNA tokens转换到潜在空间, 或者从潜在空间向量变换为tokens
-"""
-
-
 class VAE_2(nn.Module):
     def __init__(self, vocab_size, embed_dim, hidden_dim, latent_dim, pad_token_id):
         super(VAE, self).__init__()
@@ -299,12 +294,6 @@ class VAE_2(nn.Module):
             z = self.reparameterize(mean, logvar)
 
         return z
-
-
-"""
-VAE: RNA tokens的编解码器, 用于将RNA tokens转换到潜在空间, 或者从潜在空间向量变换为tokens
-"""
-
 
 class VAE_2(nn.Module):
     def __init__(self, vocab_size, embed_dim, hidden_dim, latent_dim, pad_token_id):
@@ -394,9 +383,6 @@ class VAE_2(nn.Module):
 
 
 class DecoderMLP(nn.Module):
-    """
-    从dit的embedding到rna token的MLP解码器
-    """
 
     def __init__(self, input_dim, hidden_dim, output_dim):
         super(DecoderMLP, self).__init__()
@@ -412,9 +398,6 @@ class DecoderMLP(nn.Module):
 
 
 class EmbeddingDecoderModel(nn.Module):
-    """
-        从dit的embedding到rna token的自编码器
-    """
 
     def __init__(self, vocab_size, embedding_dim, input_dim, hidden_dim):
         super(EmbeddingDecoderModel, self).__init__()
@@ -451,11 +434,6 @@ class EmbToLogits(nn.Module):
         x = self.fc2(x)
 
         return x
-
-
-"""
-VAE: RNA tokens的编解码器, 用于将RNA tokens转换到潜在空间, 或者从潜在空间向量变换为tokens, 新版本
-"""
 
 
 class VAE(nn.Module):
@@ -539,11 +517,6 @@ class VAE(nn.Module):
         return z
 
 
-"""
-训练样本的Dataset类
-"""
-
-
 class ProteinRNADataset(Dataset):
     def __init__(self, p_ids, p_lens, r_ids):
         self.p_ids = p_ids
@@ -593,9 +566,7 @@ class RNADataset(Dataset):
 
 
 class SingleTokenizer:
-    """
-        自定义的RNA tokenizer, A/C/G/U分别作为单独的token
-    """
+
     token_to_id = {
         "A": 1,
         "C": 2,
@@ -625,4 +596,5 @@ class SingleTokenizer:
             tokens = [token for token in tokens if token not in [
                 "<|end|>", "<pad>"]]
         return "".join(tokens)
+
 
