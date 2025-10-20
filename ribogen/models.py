@@ -6,9 +6,6 @@ import torch.nn.functional as F
 from ribogen.utility import position_encoding
 from ribogen.utility import get_named_beta_schedule, mean_flat
 from .utils.nn import SiLU, linear, timestep_embedding
-"""
-DiffusionTransformer: 噪声预测模型, 采用标准的Transformer结构
-"""
 
 
 class DiffusionTransformer(nn.Module):
@@ -628,3 +625,4 @@ class SingleTokenizer:
             tokens = [token for token in tokens if token not in [
                 "<|end|>", "<pad>"]]
         return "".join(tokens)
+
